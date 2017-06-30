@@ -4,4 +4,10 @@
     <TargetFramework>netstandard1.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Repo2.Core.ns11">
+      <HintPath>..\..\Repo2\Repo2.Core.ns11\bin\Release\Repo2.Core.ns11.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

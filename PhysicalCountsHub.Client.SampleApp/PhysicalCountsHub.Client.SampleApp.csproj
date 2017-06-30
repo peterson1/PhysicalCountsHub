@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PocketHub.Client.Lib">
+      <HintPath>..\..\PocketHub\PocketHub.Client.Lib\bin\Release\PocketHub.Client.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="Repo2.Core.ns11">
+      <HintPath>..\..\Repo2\Repo2.Core.ns11\bin\Release\Repo2.Core.ns11.dll</HintPath>
+    </Reference>
+    <Reference Include="Repo2.SDK.WPF45">
+      <HintPath>..\..\Repo2\Repo2.SDK.WPF45\bin\Release\Repo2.SDK.WPF45.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
