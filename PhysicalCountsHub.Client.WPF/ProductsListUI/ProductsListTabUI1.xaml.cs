@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PhysicalCountsHub.Client.SampleApp
+namespace PhysicalCountsHub.Client.WPF.ProductsListUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ProductsListTabUI1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductsListTabUI1 : UserControl
     {
-        public MainWindow()
+        public ProductsListTabUI1()
         {
             InitializeComponent();
         }
