@@ -169,6 +169,7 @@
     <Compile Include="CountConsolidationUI\SubmissionParametersUI.xaml.cs">
       <DependentUpon>SubmissionParametersUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\ItemCountsRepo.cs" />
     <Compile Include="MainWindows\MainClientWindow1.xaml.cs">
       <DependentUpon>MainClientWindow1.xaml</DependentUpon>
     </Compile>

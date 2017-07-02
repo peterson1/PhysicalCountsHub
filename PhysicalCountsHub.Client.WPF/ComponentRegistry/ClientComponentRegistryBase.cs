@@ -4,6 +4,7 @@ using PhysicalCountsHub.Client.WPF.AppUpdates;
 using PhysicalCountsHub.Client.WPF.BarcodeScanningUI;
 using PhysicalCountsHub.Client.WPF.Configuration;
 using PhysicalCountsHub.Client.WPF.CountConsolidationUI;
+using PhysicalCountsHub.Client.WPF.DataAccess;
 using PhysicalCountsHub.Client.WPF.MainWindows;
 using PhysicalCountsHub.Client.WPF.ProductsListUI;
 using Repo2.Core.ns11.AppUpdates;
@@ -30,6 +31,8 @@ namespace PhysicalCountsHub.Client.WPF.ComponentRegistry
             b.Solo<BarcodeScanningTabVM>();
             b.Solo<CountConsolidationTabVM>();
             b.Solo<ProductsListTabVM>();
+
+            b.Solo<ItemCountsRepo>();
 
             b.RegisterType(SKUDataSourceType).As<IProductDataSource>();
 

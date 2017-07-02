@@ -22,9 +22,6 @@ namespace PhysicalCountsHub.Client.WPF.BarcodeScanningUI
 
         public Observables<ItemCountRow>  ItemCounts  { get; } = new Observables<ItemCountRow>();
 
-        //[AllowNull]
-        //public string  LastScannedSKU  { get; private set; }
-
 
         internal void ProcessInputs(int? qty, string barcodeText)
         {
