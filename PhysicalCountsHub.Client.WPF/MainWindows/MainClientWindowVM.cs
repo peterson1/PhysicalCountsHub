@@ -1,4 +1,5 @@
 ﻿using PhysicalCountsHub.Client.WPF.BarcodeScanningUI;
+using PhysicalCountsHub.Client.WPF.CountConsolidationUI;
 using PhysicalCountsHub.Client.WPF.ProductsListUI;
 using Repo2.Core.ns11.AppUpdates;
 using Repo2.Core.ns11.FileSystems;
@@ -13,10 +14,12 @@ namespace PhysicalCountsHub.Client.WPF.MainWindows
 
         public MainClientWindowVM(BarcodeScanningTabVM barcodeScanningTabVM,
                                   ProductsListTabVM productsListTabVM,
+                                  CountConsolidationTabVM countConsolidationTabVM,
                                   IAppUpdater appUpdater,
                                   IFileSystemAccesor fs) : base(fs)
         {
             AddAsTab(barcodeScanningTabVM);
+            AddAsTab(countConsolidationTabVM);
             AddAsTab(productsListTabVM);
 
             Updater = appUpdater;

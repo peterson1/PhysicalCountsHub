@@ -3,6 +3,7 @@ using PhysicalCountsHub.Client.Core.ServiceContracts;
 using PhysicalCountsHub.Client.WPF.AppUpdates;
 using PhysicalCountsHub.Client.WPF.BarcodeScanningUI;
 using PhysicalCountsHub.Client.WPF.Configuration;
+using PhysicalCountsHub.Client.WPF.CountConsolidationUI;
 using PhysicalCountsHub.Client.WPF.MainWindows;
 using PhysicalCountsHub.Client.WPF.ProductsListUI;
 using Repo2.Core.ns11.AppUpdates;
@@ -27,6 +28,7 @@ namespace PhysicalCountsHub.Client.WPF.ComponentRegistry
             b.Solo<MainClientWindowVM>();
 
             b.Solo<BarcodeScanningTabVM>();
+            b.Solo<CountConsolidationTabVM>();
             b.Solo<ProductsListTabVM>();
 
             b.RegisterType(SKUDataSourceType).As<IProductDataSource>();
@@ -41,6 +43,7 @@ namespace PhysicalCountsHub.Client.WPF.ComponentRegistry
 
         protected override void SetDataTemplates(Application app)
         {
+            app.SetTemplate<CountConsolidationTabVM, CountConsolidationTabUI1>();
             app.SetTemplate<BarcodeScanningTabVM, BarcodeScanningTabUI1>();
             app.SetTemplate<ProductsListTabVM, ProductsListTabUI1>();
         }

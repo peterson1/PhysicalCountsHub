@@ -123,6 +123,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CountConsolidationUI\ConsolidatedCountsTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CountConsolidationUI\CountConsolidationTabUI1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CountConsolidationUI\PhysicalCountParametersUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CountConsolidationUI\SubmissionParametersUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindows\MainClientWindow1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +155,20 @@
     </Compile>
     <Compile Include="ComponentRegistry\ClientComponentRegistryBase.cs" />
     <Compile Include="Configuration\ClientSettingsWPF.cs" />
+    <Compile Include="CountConsolidationUI\ConsolidatedCountsTable.xaml.cs">
+      <DependentUpon>ConsolidatedCountsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CountConsolidationUI\CountConsolidationTabUI1.xaml.cs">
+      <DependentUpon>CountConsolidationTabUI1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CountConsolidationUI\CountConsolidationTabVM.cs" />
+    <Compile Include="CountConsolidationUI\DesignTimeDataVM.cs" />
+    <Compile Include="CountConsolidationUI\PhysicalCountParametersUI.xaml.cs">
+      <DependentUpon>PhysicalCountParametersUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CountConsolidationUI\SubmissionParametersUI.xaml.cs">
+      <DependentUpon>SubmissionParametersUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindows\MainClientWindow1.xaml.cs">
       <DependentUpon>MainClientWindow1.xaml</DependentUpon>
     </Compile>
