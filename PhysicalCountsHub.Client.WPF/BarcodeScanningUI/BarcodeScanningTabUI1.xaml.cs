@@ -67,9 +67,18 @@ namespace PhysicalCountsHub.Client.WPF.BarcodeScanningUI
             (DataContext as BarcodeScanningTabVM)?
                 .ProcessInputs(qty.Value, bcode.Text);
 
+            //ucItemCounts.dg.UpdateLayout();
+            ucItemCounts.dg.Items.Refresh();
+
             bcode.Clear();
             qty.Value = 1;
             qty.Focus();
+        }
+
+
+        private void FocusQtyOnEscape(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape) qty.Focus();
         }
     }
 }

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:sdk="clr-namespace:Repo2.SDK.WPF45.UserControls;assembly=Repo2.SDK.WPF45"
              xmlns:xtk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:local="clr-namespace:PhysicalCountsHub.Client.WPF.BarcodeScanningUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
@@ -56,38 +57,61 @@
             <Setter Property="AutoGenerateColumns" Value="False" />
             <Setter Property="EnableRowVirtualization" Value="True" />
             <Setter Property="EnableColumnVirtualization" Value="True" />
-            <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
+            <Setter Property="VirtualizingPanel.IsVirtualizing" Value="False" />
             <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel" />
             <Setter Property="SelectionUnit" Value="FullRow" />
             <Setter Property="ClipboardCopyMode" Value="IncludeHeader" />
             <Setter Property="BorderThickness" Value="1" />
             <!--<Setter Property="SelectionUnit" Value="Cell" />-->
             <!--<Setter Property="CellStyle" Value="{StaticResource unselectableCell}" />-->
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=PreviousData}}" Value="{x:Null}">
+                                <Setter Property="FontSize" Value="30"/>
+                                <Setter Property="FontWeight" Value="Medium" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style x:Key="dg2ColBase" TargetType="TextBlock">
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="12" />
             <Setter Property="TextWrapping" Value="Wrap" />
-        </Style>
-        <Style x:Key="dg2ColCenter" TargetType="TextBlock"
-               BasedOn="{StaticResource dg2ColBase}">
             <Setter Property="TextAlignment" Value="Center" />
-            <Setter Property="Margin" Value="7,2,7,2" />
         </Style>
-        <Style x:Key="dg2ColRight" TargetType="TextBlock"
+
+        <Style x:Key="colScanned" TargetType="TextBlock"
                BasedOn="{StaticResource dg2ColBase}">
-            <Setter Property="TextAlignment" Value="Right" />
-            <Setter Property="Margin" Value="0,2,7,2" />
+            <Setter Property="FontSize" Value="11" />
         </Style>
-        <Style x:Key="dg2ColLeft" TargetType="TextBlock"
-               BasedOn="{StaticResource dg2ColBase}">
-            <Setter Property="Margin" Value="7,2,0,2" />
+
+        <Style TargetType="xtk:IntegerUpDown">
+            <Setter Property="Padding" Value="0,0,5,0" />
         </Style>
-        <Style x:Key="dg2ColLabel" TargetType="TextBlock"
+
+        <Style x:Key="colProduct" TargetType="TextBlock"
                BasedOn="{StaticResource dg2ColBase}">
-            <Setter Property="FontWeight" Value="Medium"/>
-            <Setter Property="Margin" Value="12,2,0,2" />
-            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+        </Style>
+
+        <Style x:Key="awesomeBtn" TargetType="Button">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="ToolTipService.ShowDuration" Value="2147483647" />
+        </Style>
+
+        <Style x:Key="deleteBtn" TargetType="Button"
+                       BasedOn="{StaticResource awesomeBtn}">
+            <Setter Property="fa:Awesome.Content" Value="Trash" />
+            <Setter Property="ToolTip" Value="Delete" />
+            <Setter Property="Foreground" Value="Red" />
         </Style>
 
     </UserControl.Resources>
@@ -100,6 +124,11 @@
                   CanUserDeleteRows="False"
                   >
             <DataGrid.Columns>
+                <DataGridTextColumn Header="scanned"
+                                    Binding="{Binding TimeScanned, StringFormat=h:mm:ss}"
+                                    ElementStyle="{StaticResource colScanned}"
+                                    IsReadOnly="True"
+                                    />
                 <DataGridTemplateColumn Header="quantity"
                                         MinWidth="80"
                                         >
@@ -113,25 +142,31 @@
                 <DataGridTextColumn Header="qty"
                                     Binding="{Binding Quantity}"
                                     Visibility="Collapsed"
-                                    ElementStyle="{StaticResource dg2ColCenter}"
+                                    ElementStyle="{StaticResource dg2ColBase}"
                                     IsReadOnly="True"
                                     />
                 <DataGridTextColumn Header="barcode"
                                     Binding="{Binding Barcode}"
                                     Visibility="Collapsed"
-                                    ElementStyle="{StaticResource dg2ColCenter}"
+                                    ElementStyle="{StaticResource dg2ColBase}"
+                                    IsReadOnly="True"
                                     />
                 <DataGridTextColumn Header="product"
                                     Binding="{Binding Description}"
-                                    ElementStyle="{StaticResource dg2ColLabel}"
+                                    ElementStyle="{StaticResource colProduct}"
                                     IsReadOnly="True"
                                     MinWidth="200"
+                                    Width="*"
                                     />
-                <DataGridTextColumn Header="remarks"
-                                    Binding="{Binding Remarks}"
-                                    ElementStyle="{StaticResource dg2ColLeft}"
-                                    MinWidth="300"
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding DeleteCmd}"
+                                    Style="{StaticResource deleteBtn}"
                                     />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

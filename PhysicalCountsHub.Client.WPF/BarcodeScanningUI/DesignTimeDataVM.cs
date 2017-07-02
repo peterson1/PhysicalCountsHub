@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Repo2.Core.ns11.DataStructures;
 using Repo2.Core.ns11.Randomizers;
+using Repo2.SDK.WPF45.InputCommands;
 
 namespace PhysicalCountsHub.Client.WPF.BarcodeScanningUI
 {
@@ -11,14 +12,14 @@ namespace PhysicalCountsHub.Client.WPF.BarcodeScanningUI
 
         public DesignTimeDataVM()
         {
-            LastScannedSKU = "WHATTATOPSMNGOGRHM 35GX10";
+            //LastScannedSKU = "WHATTATOPSMNGOGRHM 35GX10";
             ItemCounts.Swap(CreateSampleItemCounts());
         }
 
 
         public Observables<ItemCountRow> ItemCounts { get; } = new Observables<ItemCountRow>();
 
-        public string LastScannedSKU { get; private set; }
+        //public string LastScannedSKU { get; private set; }
 
 
         private IEnumerable<ItemCountRow> CreateSampleItemCounts()
@@ -125,11 +126,16 @@ namespace PhysicalCountsHub.Client.WPF.BarcodeScanningUI
 
 
         private ItemCountRow SampleRow(string desc)
-            => new ItemCountRow
+        {
+            var qty = _fke.Int(1, 20);
+            return new ItemCountRow
             {
-                Quantity    = _fke.Int(1, 20),
-                Description = desc
+                TimeScanned = DateTime.Now.AddSeconds(qty),
+                Quantity    = qty,
+                Description = desc,
+                DeleteCmd   = R2Command.Relay(() => { })
             };
+        }
     }
 }
 
