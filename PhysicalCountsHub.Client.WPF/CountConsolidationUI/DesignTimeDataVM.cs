@@ -1,6 +1,6 @@
 ﻿using NullGuard;
-using PhysicalCountsHub.Client.Core;
 using PhysicalCountsHub.Client.WPF.BarcodeScanningUI;
+using PhysicalCountsHub.Common.API;
 using Repo2.Core.ns11.DataStructures;
 using Repo2.Core.ns11.InputCommands;
 using Repo2.Core.ns11.Randomizers;
@@ -18,7 +18,7 @@ namespace PhysicalCountsHub.Client.WPF.CountConsolidationUI
         public DesignTimeDataVM()
         {
             CountsTally.Swap(CreateSampleItemCounts());
-            InventoryArea = Core.InventoryArea.Unknown;
+            InventoryArea = Common.API.InventoryArea.Unknown;
             RefreshCmd    = R2Command.Relay(() => { });
             SubmitCmd     = R2Command.Relay(() => { });
         }

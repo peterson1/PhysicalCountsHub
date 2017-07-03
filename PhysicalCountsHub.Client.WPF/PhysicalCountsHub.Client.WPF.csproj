@@ -54,6 +54,9 @@
     <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net45\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
     </Reference>
+    <Reference Include="LiteDB, Version=3.1.0.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.3.1.1\lib\net35\LiteDB.dll</HintPath>
+    </Reference>
     <Reference Include="MethodTimer, Version=1.19.0.0, Culture=neutral, PublicKeyToken=cb1364609f40a1dc, processorArchitecture=MSIL">
       <HintPath>..\packages\MethodTimer.Fody.1.19.0\Lib\dotnet\MethodTimer.dll</HintPath>
       <Private>False</Private>
@@ -169,7 +172,10 @@
     <Compile Include="CountConsolidationUI\SubmissionParametersUI.xaml.cs">
       <DependentUpon>SubmissionParametersUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\ItemCountsRepo.cs" />
+    <Compile Include="LocalCaches\ItemCountsLocalRepo.cs" />
+    <Compile Include="LocalCaches\ProductsCacheRow.cs" />
+    <Compile Include="LocalCaches\ProductsCache.cs" />
+    <Compile Include="LocalCaches\ProductsLocalRepo.cs" />
     <Compile Include="MainWindows\MainClientWindow1.xaml.cs">
       <DependentUpon>MainClientWindow1.xaml</DependentUpon>
     </Compile>
@@ -180,7 +186,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductsListUI\ProductRow.cs" />
     <Compile Include="ProductsListUI\ProductsListTabUI1.xaml.cs">
       <DependentUpon>ProductsListTabUI1.xaml</DependentUpon>
     </Compile>
@@ -210,18 +215,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhysicalCountsHub.Client.Core\PhysicalCountsHub.Client.Core.csproj">
-      <Project>{1f790bdb-0f62-4776-8582-3d21f0444abd}</Project>
-      <Name>PhysicalCountsHub.Client.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\The_Count.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PhysicalCountsHub.Common.API\PhysicalCountsHub.Common.API.csproj">
+      <Project>{0540c766-50e1-44f0-8089-84e4f182c0ee}</Project>
+      <Name>PhysicalCountsHub.Common.API</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.2.0.7\build\dotnet\Fody.targets" Condition="Exists('..\packages\Fody.2.0.7\build\dotnet\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

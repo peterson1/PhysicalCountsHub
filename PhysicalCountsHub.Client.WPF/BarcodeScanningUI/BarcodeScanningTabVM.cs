@@ -1,4 +1,5 @@
-﻿using PhysicalCountsHub.Client.WPF.ProductsListUI;
+﻿using PhysicalCountsHub.Client.WPF.LocalCaches;
+using PhysicalCountsHub.Client.WPF.ProductsListUI;
 using Repo2.Core.ns11.DataStructures;
 using Repo2.Core.ns11.Extensions.StringExtensions;
 using Repo2.SDK.WPF45.Exceptions;
@@ -10,13 +11,14 @@ namespace PhysicalCountsHub.Client.WPF.BarcodeScanningUI
 {
     public class BarcodeScanningTabVM : R2ViewModelBase
     {
-        private ProductsListTabVM _skuTab;
+        private ProductsCache _skus;
 
 
-        public BarcodeScanningTabVM(ProductsListTabVM productsListTabVM)
+        public BarcodeScanningTabVM(ProductsListTabVM productsListTabVM,
+                                    ProductsCache productsCache)
         {
             UpdateTitle("Barcode Scanning");
-            _skuTab = productsListTabVM;
+            _skus = productsCache;
         }
 
 
@@ -28,7 +30,7 @@ namespace PhysicalCountsHub.Client.WPF.BarcodeScanningUI
             if (!qty.HasValue) return;
             if (!TryParseBarcode(barcodeText, out ulong bCode)) return;
 
-            var skuDesc = _skuTab.FindDescription(bCode);
+            var skuDesc = _skus.FindDescription(bCode);
             if (skuDesc.IsBlank())
             {
                 Alerter.ShowError("Unregistered Barcode",

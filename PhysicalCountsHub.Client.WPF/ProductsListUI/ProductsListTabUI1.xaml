@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:xtk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:sdk="clr-namespace:Repo2.SDK.WPF45.UserControls;assembly=Repo2.SDK.WPF45"
+             xmlns:lbhv="clr-namespace:Repo2.SDK.WPF45.ControlBehaviors.ListBoxBehaviors;assembly=Repo2.SDK.WPF45"
              xmlns:local="clr-namespace:PhysicalCountsHub.Client.WPF.ProductsListUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
@@ -15,7 +16,7 @@
                         HorizontalAlignment="Right"
                         >
                 <sdk:DualText Text1="count"
-                              Text2="{Binding Products.Count, StringFormat=N0}"
+                              Text2="{Binding Count, StringFormat=N0}"
                               VerticalAlignment="Center"
                               />
                 <Button Command="{Binding UpdateListCmd}"
@@ -25,10 +26,15 @@
                         />
             </StackPanel>
 
-            <DataGrid ItemsSource="{Binding Products}"
+            <!--<DataGrid ItemsSource="{Binding Products}"
                       Style="{StaticResource dgBase2}"
                       AutoGenerateColumns="True"
-                      />
+                      />-->
+
+            <ListBox ItemsSource="{Binding Logs}"
+                     lbhv:ScrollOnChangeBehavior.ScrollOnNewItem="True"
+                     />
+
         </DockPanel>
         
         <xtk:BusyIndicator IsBusy="{Binding IsBusy}"

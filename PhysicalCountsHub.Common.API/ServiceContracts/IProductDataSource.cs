@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PhysicalCountsHub.Client.Core.ServiceContracts
+namespace PhysicalCountsHub.Common.API.ServiceContracts
 {
     public interface IProductDataSource
     {
-        Task<Dictionary<ulong, string>>  GetMasterList ();
+        Task<Dictionary<ulong, string>> GetMasterList();
     }
 }

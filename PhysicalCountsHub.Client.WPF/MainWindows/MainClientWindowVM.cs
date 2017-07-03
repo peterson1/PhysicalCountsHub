@@ -23,7 +23,7 @@ namespace PhysicalCountsHub.Client.WPF.MainWindows
             AddAsTab(productsListTabVM);
 
             Updater = appUpdater;
-            Updater.StartCheckingForUpdates();
+            //Updater.StartCheckingForUpdates();
         }
 
 
