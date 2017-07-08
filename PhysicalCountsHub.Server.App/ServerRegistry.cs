@@ -1,14 +1,10 @@
-﻿using PocketHub.Server.Lib.ComponentRegistry;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Autofac;
 using Microsoft.Owin.Hosting;
-using Autofac;
-using System.Windows;
 using PhysicalCountsHub.Server.App.SignalRHubs;
+using PocketHub.Server.Lib.ComponentRegistry;
 using Repo2.SDK.WPF45.Extensions.IOCExtensions;
+using System;
+using System.Windows;
 
 namespace PhysicalCountsHub.Server.App
 {
