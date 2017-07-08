@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicalCountsHub.Client.Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicalCountsHub.Server.App", "PhysicalCountsHub.Server.App\PhysicalCountsHub.Server.App.csproj", "{0D961397-A34D-42FE-B6D0-D04AC7595C02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicalCountsHub.Client.Core", "PhysicalCountsHub.Client.Core\PhysicalCountsHub.Client.Core.csproj", "{1F790BDB-0F62-4776-8582-3D21F0444ABD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicalCountsHub.Common.API", "PhysicalCountsHub.Common.API\PhysicalCountsHub.Common.API.csproj", "{0540C766-50E1-44F0-8089-84E4F182C0EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{0D961397-A34D-42FE-B6D0-D04AC7595C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D961397-A34D-42FE-B6D0-D04AC7595C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D961397-A34D-42FE-B6D0-D04AC7595C02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F790BDB-0F62-4776-8582-3D21F0444ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F790BDB-0F62-4776-8582-3D21F0444ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F790BDB-0F62-4776-8582-3D21F0444ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F790BDB-0F62-4776-8582-3D21F0444ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0540C766-50E1-44F0-8089-84E4F182C0EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0540C766-50E1-44F0-8089-84E4F182C0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0540C766-50E1-44F0-8089-84E4F182C0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0540C766-50E1-44F0-8089-84E4F182C0EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

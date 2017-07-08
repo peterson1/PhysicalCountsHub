@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:enum="clr-namespace:PhysicalCountsHub.Client.Core;assembly=PhysicalCountsHub.Client.Core"
+             xmlns:enum="clr-namespace:PhysicalCountsHub.Common.API;assembly=PhysicalCountsHub.Common.API"
              xmlns:cnv="clr-namespace:Repo2.SDK.WPF45.Converters;assembly=Repo2.SDK.WPF45"
              xmlns:local="clr-namespace:PhysicalCountsHub.Client.WPF.CountConsolidationUI"
              mc:Ignorable="d" 

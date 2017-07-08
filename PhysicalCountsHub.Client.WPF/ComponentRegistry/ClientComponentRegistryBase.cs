@@ -1,12 +1,12 @@
 ﻿using Autofac;
-using PhysicalCountsHub.Client.Core.ServiceContracts;
 using PhysicalCountsHub.Client.WPF.AppUpdates;
 using PhysicalCountsHub.Client.WPF.BarcodeScanningUI;
 using PhysicalCountsHub.Client.WPF.Configuration;
 using PhysicalCountsHub.Client.WPF.CountConsolidationUI;
-using PhysicalCountsHub.Client.WPF.DataAccess;
+using PhysicalCountsHub.Client.WPF.LocalCaches;
 using PhysicalCountsHub.Client.WPF.MainWindows;
 using PhysicalCountsHub.Client.WPF.ProductsListUI;
+using PhysicalCountsHub.Common.API.ServiceContracts;
 using Repo2.Core.ns11.AppUpdates;
 using Repo2.Core.ns11.Authentication;
 using Repo2.Core.ns11.FileSystems;
@@ -32,7 +32,9 @@ namespace PhysicalCountsHub.Client.WPF.ComponentRegistry
             b.Solo<CountConsolidationTabVM>();
             b.Solo<ProductsListTabVM>();
 
-            b.Solo<ItemCountsRepo>();
+            b.Solo<ItemCountsLocalRepo>();
+            b.Solo<ProductsCache>();
+            b.Solo<ProductsLocalRepo>();
 
             b.RegisterType(SKUDataSourceType).As<IProductDataSource>();
 

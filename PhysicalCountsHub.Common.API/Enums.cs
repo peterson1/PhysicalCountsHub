@@ -1,4 +1,4 @@
-﻿namespace PhysicalCountsHub.Client.Core
+﻿namespace PhysicalCountsHub.Common.API
 {
     public enum InventoryArea
     {

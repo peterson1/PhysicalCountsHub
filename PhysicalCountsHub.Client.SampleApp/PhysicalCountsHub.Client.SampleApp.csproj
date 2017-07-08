@@ -100,13 +100,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhysicalCountsHub.Client.Core\PhysicalCountsHub.Client.Core.csproj">
-      <Project>{1f790bdb-0f62-4776-8582-3d21f0444abd}</Project>
-      <Name>PhysicalCountsHub.Client.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PhysicalCountsHub.Client.WPF\PhysicalCountsHub.Client.WPF.csproj">
       <Project>{96f9eb38-c09d-463c-a4e0-2ae0a5543e7e}</Project>
       <Name>PhysicalCountsHub.Client.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhysicalCountsHub.Common.API\PhysicalCountsHub.Common.API.csproj">
+      <Project>{0540c766-50e1-44f0-8089-84e4f182c0ee}</Project>
+      <Name>PhysicalCountsHub.Common.API</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

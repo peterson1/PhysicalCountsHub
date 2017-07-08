@@ -1,4 +1,4 @@
-﻿using PhysicalCountsHub.Client.Core.ServiceContracts;
+﻿using PhysicalCountsHub.Common.API.ServiceContracts;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,6 +9,10 @@ namespace PhysicalCountsHub.Client.SampleApp
         public async Task<Dictionary<ulong, string>> GetMasterList()
         {
             await Task.Delay(1000 * 3);
+
+            //var a = 0;
+            //var b = 23 / a;
+
             return new Dictionary<ulong, string>
             {                
                 {  1, "NESCAFE DECAFRESEAL9" },
